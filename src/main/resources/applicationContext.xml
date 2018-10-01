@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"> <!-- bean definitions here -->
+
+
+    <!--  2018/9/28 IOC注解入门 -->
+    <!--使用IOC 的注解开发需要配置扫描(那些包下的类使用IOC注解)-->
+    <context:component-scan base-package="com.cqs.learning.spring"/>
+    <!--没有扫描用context:annotation-config-->
+    <context:annotation-config/>
+    <bean id = "produceService1" class = "com.cqs.learning.spring.propertyinjectionxml.produceservicenote.ProduceService1"></bean>
+
+    <bean id = "productDao1" class = "com.cqs.learning.spring.propertyinjectionxml.produceservicenote.ProductDao1"></bean>
+    <bean id = "orderDao1" class = "com.cqs.learning.spring.propertyinjectionxml.produceservicenote.OrderDao1"></bean>
+
+
+
+
+    <bean id = "produceService" class = "com.cqs.learning.spring.propertyinjectionxml.produceservicexml.ProduceService">
+        <property name = "productDao" ref="productDao"/>
+        <property name = "orderDao" ref="orderDao"/>
+    </bean>
+
+    <bean id = "productDao" class = "com.cqs.learning.spring.propertyinjectionxml.produceservicexml.ProductDao"></bean>
+    <bean id = "orderDao" class = "com.cqs.learning.spring.propertyinjectionxml.produceservicexml.OrderDao"></bean>
+
+
+
+</beans>
